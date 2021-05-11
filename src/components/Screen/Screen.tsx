@@ -14,7 +14,7 @@ export const Screen = () => {
 
   useFrame((state) => {
     if (ref.current.uniforms) {
-      ref.current.uniforms.time.value = state.clock.elapsedTime;
+      ref.current.uniforms.uTime.value = state.clock.elapsedTime;
     }
   });
 
@@ -23,8 +23,8 @@ export const Screen = () => {
       <colorShiftMaterial
         ref={ref}
         attach="material"
-        time={0}
-        resolution={[size.width, size.height]}
+        uTime={0}
+        uResolution={[size.width, size.height]}
       />
     </ScreenQuad>
   );
