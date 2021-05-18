@@ -1,8 +1,8 @@
 import { shaderMaterial } from "@react-three/drei";
 import raw from "raw.macro";
 
-const vertexShader = raw("./vertex.vert");
-const fragmentShader = raw("./fragment.vert");
+const vertexShader = raw("./shaders/vertex.vert");
+const fragmentShader = raw("./shaders/fragment.vert");
 
 export type ColorShiftMaterialUniforms = {
   uTime: number;
