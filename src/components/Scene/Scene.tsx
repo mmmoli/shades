@@ -6,6 +6,7 @@ import {
 } from "../TransitioningMaterial";
 import React from "react";
 import { Mesh, DoubleSide } from "three";
+import { useTexture } from "@react-three/drei";
 
 extend({ TransitioningMaterial });
 
@@ -13,6 +14,8 @@ export const Scene = () => {
   const size = useThree((state) => state.size);
   const ref = React.useRef<TransitioningMaterialImpl>(null!);
   const mesh = React.useRef<Mesh>();
+
+  const [img0, img1] = useTexture(["./img0.jpg", "./img1.jpg"]);
 
   useFrame((state) => {
     if (ref.current.uniforms) {
@@ -29,9 +32,11 @@ export const Scene = () => {
       <transitioningMaterial
         ref={ref}
         attach="material"
-        uTime={0}
-        uResolution={[size.width, size.height]}
         side={DoubleSide}
+        uResolution={[size.width, size.height]}
+        uTexture0={img0}
+        uTexture1={img1}
+        uTime={0}
       />
     </Plane>
   );
