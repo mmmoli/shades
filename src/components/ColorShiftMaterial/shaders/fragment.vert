@@ -7,6 +7,8 @@ uniform vec2 uMouse;
 void main(){
     
     float progress=.5+atan(sin(uTime)/.1)/3.;
+    float shake=sin(progress*10.)/100.;
+    vec2 shift=vec2(shake,0.);
     
     // float frequency = 1.0 + (maxPeriod - 1.0) * abs(sin(uTime));
     

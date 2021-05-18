@@ -1,7 +1,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React from "react";
-import { Screen } from "./components/Screen";
+import React, { Suspense } from "react";
+import { Scene } from "./components/Scene";
 
 export const App: React.FC = () => {
   return (
@@ -9,7 +9,9 @@ export const App: React.FC = () => {
       <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      <Screen />
+      <Suspense fallback={null}>
+        <Scene />
+      </Suspense>
     </Canvas>
   );
 };

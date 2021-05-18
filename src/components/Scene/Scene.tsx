@@ -9,7 +9,7 @@ import { Mesh, DoubleSide } from "three";
 
 extend({ ColorShiftMaterial });
 
-export const Screen = () => {
+export const Scene = () => {
   const size = useThree((state) => state.size);
   const ref = React.useRef<ColorShiftMaterialImpl>(null!);
   const mesh = React.useRef<Mesh>();
