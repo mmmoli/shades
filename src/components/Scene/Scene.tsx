@@ -1,17 +1,17 @@
 import { Plane } from "@react-three/drei";
 import { extend, useFrame, useThree } from "@react-three/fiber";
 import {
-  ColorShiftMaterial,
-  ColorShiftMaterialImpl,
-} from "../ColorShiftMaterial";
+  TransitioningMaterial,
+  TransitioningMaterialImpl,
+} from "../TransitioningMaterial";
 import React from "react";
 import { Mesh, DoubleSide } from "three";
 
-extend({ ColorShiftMaterial });
+extend({ TransitioningMaterial });
 
 export const Scene = () => {
   const size = useThree((state) => state.size);
-  const ref = React.useRef<ColorShiftMaterialImpl>(null!);
+  const ref = React.useRef<TransitioningMaterialImpl>(null!);
   const mesh = React.useRef<Mesh>();
 
   useFrame((state) => {
@@ -26,7 +26,7 @@ export const Scene = () => {
 
   return (
     <Plane ref={mesh} args={[3, 4]}>
-      <colorShiftMaterial
+      <transitioningMaterial
         ref={ref}
         attach="material"
         uTime={0}
