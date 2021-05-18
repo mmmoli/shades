@@ -20,7 +20,7 @@ export const Screen = () => {
     }
 
     if (mesh.current) {
-      mesh.current.rotation.y += 0.01;
+      mesh.current.rotation.y += 0.001;
       console.log(mesh.current.rotation.y);
     }
   });
