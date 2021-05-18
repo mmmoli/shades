@@ -2,14 +2,9 @@ uniform float uTime;
 uniform vec2 uResolution;
 uniform vec2 uMouse;
 
-vec3 colorA=vec3(.149,.141,.912);
-vec3 colorB=vec3(1.,.833,.224);
-float maxPeriod=10.;
-
 #define PI 3.14159265359
 
 void main(){
-    vec2 st=gl_FragCoord.xy/uResolution;
     
     float progress=.5+atan(sin(uTime)/.1)/3.;
     

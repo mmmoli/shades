@@ -14,6 +14,7 @@ export type ColorShiftMaterialImpl = ColorShiftMaterialUniforms &
 const uniforms: ColorShiftMaterialUniforms = {
   uTime: 0,
   uResolution: [0, 0],
+  // uTexture1:
 };
 
 export const ColorShiftMaterial = shaderMaterial(
