@@ -23,12 +23,12 @@ export const Scene = () => {
     }
 
     if (mesh.current) {
-      mesh.current.rotation.y += 0.001;
+      // mesh.current.rotation.y += 0.001;
     }
   });
 
   return (
-    <Plane ref={mesh} args={[3, 4]}>
+    <Plane ref={mesh} args={[10, 10, 10, 10]}>
       <transitioningMaterial
         ref={ref}
         attach="material"
