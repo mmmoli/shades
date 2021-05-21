@@ -1,20 +1,19 @@
 import { Plane } from "@react-three/drei";
-import { extend, useFrame, useThree } from "@react-three/fiber";
-import { WaveMaterial, WaveMaterialImpl } from "../WaveMaterial";
-import React, { useCallback } from "react";
-import { Mesh, DoubleSide, Shader } from "three";
+import { extend, useFrame } from "@react-three/fiber";
+import React from "react";
+import { DoubleSide, Mesh } from "three";
+import { FancyWaveMaterial } from "../FancyWaveMaterial";
 
-extend({ WaveMaterial });
+extend({ FancyWaveMaterial });
 
 export const Scene = () => {
-  const size = useThree((state) => state.size);
-  const ref = React.useRef<WaveMaterialImpl>(null!);
+  const material = React.useRef<FancyWaveMaterial>(null!);
   const mesh = React.useRef<Mesh>();
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
-    if (ref.current.uniforms) {
-      ref.current.uniforms.uTime.value = t;
+    if (material.current) {
+      material.current.uTime.value = t;
     }
 
     if (mesh.current) {
@@ -25,29 +24,22 @@ export const Scene = () => {
     }
   });
 
-  // const onBeforeCompile = useCallback((shader: Shader) => {
-  //   const rawVertexShader = shader.vertexShader;
-  //   const modifiedVertexShader = rawVertexShader.replace(
-  //     "#include <displacementmap_vertex>",
-  //     ""
-  //   );
-  //   shader.vertexShader = modifiedVertexShader;
-  // }, []);
-
   return (
-    <Plane ref={mesh} args={[10, 10, 50, 50]}>
-      {/* <meshPhongMaterial
+    <Plane ref={mesh} args={[30, 30, 120, 120]}>
+      <fancyWaveMaterial
+        ref={material}
         attach="material"
-        color="hotpink"
-        onBeforeCompile={onBeforeCompile}
-      /> */}
-      <waveMaterial
+        color="#ffcc00"
+        shininess={16}
+        side={DoubleSide}
+      />
+      {/* <fancyWaveMaterial
         ref={ref}
         attach="material"
         side={DoubleSide}
         uResolution={[size.width, size.height]}
         uTime={0}
-      />
+      /> */}
     </Plane>
   );
 };

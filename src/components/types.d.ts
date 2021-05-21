@@ -1,4 +1,5 @@
 import { ColorShiftMaterialImpl } from "./ColorShiftMaterial";
+import { FancyWaveMaterialImpl } from "./FancyWaveMaterial";
 import { TransitioningMaterialImpl } from "./TransitioningMaterial";
 import { WaveMaterialImpl } from "./WaveMaterial";
 
@@ -8,6 +9,7 @@ declare global {
       colorShiftMaterial: ColorShiftMaterialImpl;
       transitioningMaterial: TransitioningMaterialImpl;
       waveMaterial: WaveMaterialImpl;
+      fancyWaveMaterial: FancyWaveMaterialImpl;
     }
   }
 }
