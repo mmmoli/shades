@@ -7,7 +7,7 @@ export const App: React.FC = () => {
   return (
     <Canvas>
       <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
-      {/* <ambientLight /> */}
+      <ambientLight />
       <pointLight position={[5, 10, 30]} />
       <Suspense fallback={null}>
         <Scene />

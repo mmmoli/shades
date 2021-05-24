@@ -18,7 +18,7 @@ export class FancyWaveMaterial extends MeshPhongMaterial {
       "#include <project_vertex>",
       `#include <project_vertex>
       vec3 newPosition=position;
-      newPosition.z+=.5*sin((newPosition.x+uTime)*PI);
+      newPosition.z+=.1*sin((newPosition.x+uTime)*PI);
       gl_Position=projectionMatrix*modelViewMatrix*vec4(newPosition,1.);
       `
     );
